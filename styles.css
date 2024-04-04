@@ -5,11 +5,20 @@
 
 #container {
     display: flex;
+    justify-content: center;
     border: 3px solid black;
 }
 
 #container > div {
     display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    padding: 20px;
+}
+
+#container > div  > div {
+    display: flex;
+    
     border: 1px solid black;
     padding: 20px;
 }
