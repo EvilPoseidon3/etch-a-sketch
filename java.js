@@ -4,10 +4,6 @@ let stbtn = document.querySelector("#buttonStart");
 
 
 
-
-
-
-
 function makeGrid(gridWidth) {
     
     for (let i = 0; i < gridWidth ; i++) {
@@ -26,10 +22,15 @@ function makeGrid(gridWidth) {
             randomnumber2 = document.createElement("div")
             randomnumber.append(randomnumber2)
 
+            randomnumber2.addEventListener("mouseover", () => {
+                randomnumber2.style.backgroundColor = "black";
+            })
         }
     }
 
     
 }
 
-console.log(makeGrid(10))
+
+
+makeGrid(100)
