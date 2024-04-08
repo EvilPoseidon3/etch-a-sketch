@@ -2,16 +2,31 @@
 let container = document.querySelector("#container");
 let stbtn = document.querySelector("#buttonStart");
 
+console.log(container.hasChildNodes())
+
 stbtn.addEventListener("click", () => {
-    let gridSize = prompt("what size would you like the Etch-a-Sketch?", "5-100");
-    
-    let gridDivP = document.querySelectorAll(".gridDivParent");
-    let gridDivC = document.querySelectorAll(".gridDivChild")
-    if (container.hasChildNodes()) {
-    container.removeChild(container.children[0])};
-        console.log(container.hasChildNodes());
-    makeGrid(gridSize);
+    let gridWidth = prompt("what size would you like the Etch-a-Sketch?", "5-100");
+ 
+    if (container.hasChildNodes()){
+    deletePrev();}
+
+    makeGrid(gridWidth);
 })
+
+function deletePrev() {
+    
+    var gridDivParent = document.getElementById("container").getElementsByClassName("gridDivParent");
+    let gridDivParentLength = gridDivParent.length - 1
+    for (let i = gridDivParentLength; i >= 0; i--) {
+        let parentDelCol = gridDivParent[i]
+        let gridDivChild = parentDelCol.getElementsByClassName("gridDivChild")
+        let gridDivChildLength = gridDivChild.length -1
+        
+        for (let i = gridDivChildLength; i >= 0; i--){
+        let gridDelRow = gridDivChild[i]
+        parentDelCol.removeChild(gridDelRow)
+    }}}
+    
 
 function makeGrid(gridWidth) {
 
@@ -46,4 +61,3 @@ function makeGrid(gridWidth) {
 
 
 
-// makeGrid(100)
