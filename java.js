@@ -6,11 +6,13 @@ console.log(container.hasChildNodes())
 
 stbtn.addEventListener("click", () => {
     let gridWidth = prompt("what size would you like the Etch-a-Sketch?", "5-100");
- 
+ if (gridWidth < 101){
     if (container.hasChildNodes()){
     deletePrev();}
 
-    makeGrid(gridWidth);
+    makeGrid(gridWidth);} else {
+        alert('That number is too large try a smaller one.')
+    }
 })
 
 function deletePrev() {
@@ -50,9 +52,19 @@ function makeGrid(gridWidth) {
             randomnumber2.setAttribute("class", "gridDivChild")
             randomnumber.append(randomnumber2)
 
-            randomnumber2.addEventListener("mouseover", () => {
-                randomnumber2.style.backgroundColor = "black";
+            randomnumber2.addEventListener("mouseover", function colorChange() {
+                let colorNumber1 =Math.floor(Math.random() * 255);
+                // console.log(colorNumber1)
+                let colorNumber2 = Math.floor(Math.random() * 255);
+                let colorNumber3 = Math.floor(Math.random() * 255);
+                // let colorRandomCombo =(colorNumber1,colorNumber2,colorNumber3) ;
+                randomnumber2.style.backgroundColor = "rgba(" + colorNumber1 + "," + colorNumber2 + "," + colorNumber3 + ", 1)"
+                randomnumber2.removeEventListener("mouseover", colorChange)            
+
             })
+            
+        
+            
         }
     }
 
